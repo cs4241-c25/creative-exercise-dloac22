@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Creative Exercise</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>My Creative Exercise</h1>
+	<div class = "canvas">
+		<svg height="250" width="200" xmlns="http://www.w3.org/2000/svg">
+			<polygon points="100,10 40,198 190,78 10,78 160,198"
+			style="fill:yellow;stroke:red;stroke-width:5;" />
+		</svg>
+	</div>
+	<svg width="800" height="100" xmlns="http://www.w3.org/2000/svg">
+		<circle id="circle4" cx="50" cy="50" r="50" style="fill:red;" />
+	</svg>
+	
+	<script>
+		var t = null;
+		
+		function start() {
+			if(t == null) {
+			t = setInterval(animate, 20);
+			}
+		}
+		
+		function stop() {
+			if(t != null) {
+			clearInterval(t);
+			t = null;
+			}
+		}
+		
+		function animate() {
+			var circle = document.getElementById("circle4");
+			var cx = circle.getAttribute("cx");
+			var newCX = 2 + parseInt(cx);
+			if(newCX > 600) {
+			newCX = 50;
+			}
+			circle.setAttribute("cx", newCX);
+		}
+	</script>
+	
+	<br/>
+	<input type="button" value="Start" onclick="start()" />
+	<input type="button" value="Stop" onclick="stop()" />
+</body>
+</html>
